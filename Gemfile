@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.15'
+gem 'rails', '4.2.6'
 
+gem 'puma'
 ### DB ###
 gem 'mysql2'
 
