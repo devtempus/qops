@@ -1,0 +1,9 @@
+%head
+  %title Q-Project#{' - ' if yield(:title).present?}#{yield(:title)}
+  %meta{charset: 'utf-8'}/
+  %meta{content: 'width=device-width, initial-scale=0.8', name: 'viewport'}
+  %meta{content: 'Q-Project', name: 'author'}
+  %meta{content: '', name: 'keyword'}
+  %meta{property: 'og:title', content: 'Q-Project'}
+  %meta{property: 'og:site_name', content: 'Q-Project'}
+  %meta{property: 'og:url', content: request.original_url }
