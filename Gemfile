@@ -29,9 +29,6 @@ gem 'font-awesome-rails'
 gem 'async-rails'
 gem 'responders'
 
-### ADMIN Panel ###
-gem 'rails_admin'
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl'
