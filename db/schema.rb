@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330145212) do
+ActiveRecord::Schema.define(version: 20160421114806) do
 
   create_table "authorizations", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20160330145212) do
     t.string "name", limit: 255
   end
 
+  create_table "categories_quotations", id: false, force: :cascade do |t|
+    t.integer "quotation_id", limit: 4
+    t.integer "category_id",  limit: 4
+  end
+
+  add_index "categories_quotations", ["category_id"], name: "index_categories_quotations_on_category_id", using: :btree
+  add_index "categories_quotations", ["quotation_id"], name: "index_categories_quotations_on_quotation_id", using: :btree
+
   create_table "quotations", force: :cascade do |t|
     t.integer  "author_id",  limit: 4
     t.string   "text",       limit: 255
@@ -49,14 +57,6 @@ ActiveRecord::Schema.define(version: 20160330145212) do
 
   add_index "quotations", ["author_id"], name: "index_quotations_on_author_id", using: :btree
   add_index "quotations", ["text"], name: "index_quotations_on_text", unique: true, using: :btree
-
-  create_table "quotations_categories", id: false, force: :cascade do |t|
-    t.integer "quotation_id", limit: 4
-    t.integer "category_id",  limit: 4
-  end
-
-  add_index "quotations_categories", ["category_id"], name: "index_quotations_categories_on_category_id", using: :btree
-  add_index "quotations_categories", ["quotation_id"], name: "index_quotations_categories_on_quotation_id", using: :btree
 
   create_table "quotations_tags", id: false, force: :cascade do |t|
     t.integer "quotation_id", limit: 4
