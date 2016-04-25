@@ -1,0 +1,10 @@
+!!!
+%html
+  = render 'layouts/partials/admin/header'
+  = stylesheet_link_tag    :application, media: :all
+  = javascript_include_tag :application, media: :all
+  = csrf_meta_tags
+  %body
+    = render 'layouts/partials/admin/nav_bar'
+    = render 'layouts/partials/admin/content'
+    = render 'layouts/partials/admin/footer'

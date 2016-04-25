@@ -1,0 +1,16 @@
+%nav.admin_nav.navbar-inverse.navbar.navbar-fixed-top{role: 'navigation'}
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-2", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Admin Panel Q-Project', root_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          -#= link_to rails_admin_path do
+            Admin Panel
+            %span.sr-only (current)
+      %ul.nav.navbar-nav.navbar-right
