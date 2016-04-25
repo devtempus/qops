@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425064327) do
+ActiveRecord::Schema.define(version: 20160425070620) do
 
   create_table "authorizations", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160425064327) do
     t.datetime "updated_at"
     t.boolean  "publicated",                    default: false
     t.datetime "publicated_date"
+    t.string   "source",          limit: 255
   end
 
   add_index "quotations", ["author_id"], name: "index_quotations_on_author_id", using: :btree
