@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421114806) do
+ActiveRecord::Schema.define(version: 20160425064327) do
 
   create_table "authorizations", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -48,11 +48,13 @@ ActiveRecord::Schema.define(version: 20160421114806) do
   add_index "categories_quotations", ["quotation_id"], name: "index_categories_quotations_on_quotation_id", using: :btree
 
   create_table "quotations", force: :cascade do |t|
-    t.integer  "author_id",  limit: 4
-    t.string   "text",       limit: 255
-    t.text     "full_text",  limit: 65535
+    t.integer  "author_id",       limit: 4
+    t.string   "text",            limit: 255
+    t.text     "full_text",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "publicated",                    default: false
+    t.datetime "publicated_date"
   end
 
   add_index "quotations", ["author_id"], name: "index_quotations_on_author_id", using: :btree
