@@ -3,17 +3,15 @@ Rails.application.routes.draw do
   ###   Root Level ###
   ####################
   root to: 'dashboards#index'
-  resource :categories
-
 
   ###########################
   ###   ADMIN Resources   ###
   ###########################
   namespace :admin do
     root to: 'dashboards#index'
-    resource :quotations
-    resource :categories
-    resource :tags
+    resources :quotations
+    resources :categories
+    resources :tags
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

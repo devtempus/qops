@@ -1,7 +1,7 @@
 %ul.children_category
   - categories.each do |category|
     %li
-      = link_to admin_categories_path(id: category)  do
+      = link_to admin_category_path(category)  do
         %span= category.name
         %i.fa.fa-pencil
       - if category.children.present?
