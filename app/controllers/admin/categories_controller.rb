@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::AdminController
-  before_action :current_category, only: %i(update edit update destroy)
+  before_action :current_category, only: %i(update edit show update destroy)
   respond_to :html, :js
   def index
   end

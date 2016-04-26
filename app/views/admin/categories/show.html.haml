@@ -1,1 +1,6 @@
+- @category.ancestors.each do |cat|
+  = link_to admin_category_path(cat) do
+    %span= cat.name
+    %i.fa.fa-angle-right
+
 %h1 Show#action
