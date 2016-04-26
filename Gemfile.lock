@@ -36,6 +36,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    ancestry (2.1.0)
+      activerecord (>= 3.0.0)
     arel (6.0.3)
     ast (2.2.0)
     async-rails (1.5.2)
@@ -244,6 +246,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ancestry
   async-rails
   awesome_print
   better_errors (~> 2.1.0)
@@ -270,7 +273,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   responders
   rest-client (~> 1.8.0)
-  rspec-rails
+  rspec-rails (~> 3.0)
   rubocop
   sass-rails
   simplecov

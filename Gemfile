@@ -29,8 +29,10 @@ gem 'font-awesome-rails'
 gem 'async-rails'
 gem 'responders'
 
+gem 'ancestry'
+
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl'
   gem 'simplecov', require: false
   gem 'byebug'

@@ -1,0 +1,16 @@
+.panel-body
+  = form_for @category, url: admin_categories_path,  html: {class: 'form-horizontal', role: 'form'} do |f|
+    - if @category.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@category.errors.count, "error")} area save problem:"
+        %ul
+          - @area.errors.full_messages.each do |msg|
+            %li= msg
+    .form-group.field
+      = f.label :name, 'Category Name'
+      = f.text_field :name, class: 'form-control'
+    .form-group.field
+      = f.label :parent_id
+      = f.collection_select :parent_id, Category.order('name'), :id, :name, include_blank: true
+    .form-group
+      = f.submit action_name == 'edit' ? 'Update' : 'Create', class: 'form-control btn btn-primary submit-button'

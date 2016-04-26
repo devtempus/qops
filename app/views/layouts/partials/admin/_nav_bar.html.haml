@@ -10,7 +10,15 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          -#= link_to rails_admin_path do
-            Admin Panel
+          = link_to admin_categories_path do
+            Categories
             %span.sr-only (current)
+        %li
+          = link_to admin_quotations_path do
+            Quotations
+            %span.sr-only
+        %li
+          = link_to admin_tags_path do
+            Quotations
+            %span.sr-only
       %ul.nav.navbar-nav.navbar-right
