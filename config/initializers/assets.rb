@@ -3,9 +3,15 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
-# Add additional assets to the asset load path
-# Rails.application.config.assets.paths << Emoji.images_path
+### fonts ###
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
 
-# Precompile additional assets.
-# application.js, application.sass, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+### CSS ###
+Rails.application.config.assets.precompile += %w(
+  admin.sass
+  admin/metisMenu.css )
+
+### JS ###
+Rails.application.config.assets.precompile += %w(
+  admin.js
+  admin/metisMenu.js )
