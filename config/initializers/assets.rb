@@ -5,13 +5,14 @@ Rails.application.config.assets.version = '1.0'
 
 ### fonts ###
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+Rails.application.config.assets.precompile += %w(
+  glyphicons-halflings-regular.ttf
+  glyphicons-halflings-regular.woff )
 
 ### CSS ###
 Rails.application.config.assets.precompile += %w(
-  admin.sass
-  admin/metisMenu.css )
+  admin.sass )
 
 ### JS ###
 Rails.application.config.assets.precompile += %w(
-  admin.js
-  admin/metisMenu.js )
+  admin.js )

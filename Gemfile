@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 
 gem 'puma'
+
 ### DB ###
 gem 'mysql2'
 
@@ -14,13 +15,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
 gem 'jbuilder', '~> 2.0'
 
-# gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'haml', '~> 4.0.7'
+gem 'haml-rails', '~> 0.9.0'
 
-gem 'haml'
-gem 'haml-rails'
-
-gem 'bootstrap-sass', '~> 3.1.1'
-gem 'bootswatch-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootswatch-rails', '~> 3.3.4'
 
 # rest client
 gem 'rest-client', '~>1.8.0'

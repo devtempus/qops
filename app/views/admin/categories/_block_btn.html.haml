@@ -1,0 +1,7 @@
+%span
+  = link_to new_admin_category_path(category) do
+    %i.fa.fa-plus
+  = link_to edit_admin_category_path(category) do
+    %i.fa.fa-pencil
+  = link_to admin_category_path(category), method: :delete, data: { remote: true } do
+    %i.fa.fa-trash

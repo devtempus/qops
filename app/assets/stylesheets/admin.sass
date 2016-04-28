@@ -1,11 +1,15 @@
 /*
- *= require_tree ./admin
  *= require_self
- *= require font-awesome
+ *= require 'font-awesome'
  */
 
 @import "bootstrap"
+@import "admin/*"
 
+@font-face
+  font-family: 'Glyphicons Halflings'
+  src: url(asset_path("glyphicons-halflings-regular.ttf"))
+  src: url(asset_path("glyphicons-halflings-regular.woff"))
 body
   padding-top: 60px
 

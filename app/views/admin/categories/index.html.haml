@@ -1,20 +1,20 @@
-= link_to new_admin_category_path do
-  %i.fa.fa-plus
-  %span Create Root Category
-
-- if @categories.present?
-  .navbar-default.sidebar{role: 'navigation'}
-    .sidebar-nav.navbar-collapse
-      %ul.nav.nav-second-level.collapse.in#side-menu
-        - @categories.roots.each do |category|
-          %li
-            = category.name
-            %span
-              = link_to new_admin_category_path(category) do
+.container-fluid
+  .row
+    .col-xs-3
+      %aside.sidebar
+        %nav.sidebar-nav
+          %ul#menu
+            %li
+              = link_to new_admin_category_path do
                 %i.fa.fa-plus
-              = link_to edit_admin_category_path(category) do
-                %i.fa.fa-pencil
-              = link_to admin_category_path(category), method: :delete, data: { remote: true } do
-                %i.fa.fa-trash
-            - if category.children.present?
-              = render partial: 'admin/categories/sub_categories', locals: { categories: category.children }
+                %span Create Root Category
+            - if @categories.present?
+              - @categories.roots.each do |category|
+                %li
+                  = category.name
+                  = render partial: 'admin/categories/block_btn', locals: { category: category }
+                  - if category.children.present?
+                    = render partial: 'admin/categories/sub_categories', locals: { categories: category.children }
+    .col-xs-9
+
+

@@ -1,8 +1,7 @@
-%ul.children_category
+%ul
   - categories.each do |category|
     %li
-      = link_to admin_category_path(category)  do
-        %span= category.name
-        %i.fa.fa-pencil
+      %span= category.name
+      = render partial: 'admin/categories/block_btn', locals: { category: category }
       - if category.children.present?
         = render partial: 'admin/categories/sub_categories', locals: { categories: category.children }
