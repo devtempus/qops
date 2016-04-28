@@ -5,6 +5,7 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def show
+    respond_to :js
   end
 
   def new

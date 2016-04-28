@@ -1,0 +1,14 @@
+- content_for :title, category.name
+- category.ancestors.each do |cat|
+  = link_to admin_category_path(cat) do
+    %span= cat.name
+    %i.fa.fa-angle-right
+
+- if category.quotations.empty?
+  %h1= "Current Category: #{category.name} do not have any quotation."
+  %h3 You can click on this button and create quotation.
+  - if category.quotations.present?
+    - category.quotations.each do |quotation|
+      = quotation.text
+      = quotation.full_text
+

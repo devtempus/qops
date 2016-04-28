@@ -11,10 +11,12 @@
             - if @categories.present?
               - @categories.roots.each do |category|
                 %li
-                  = category.name
+                  = link_to admin_category_path(category), data: {remote: true} do
+                    %span= category.name
                   = render partial: 'admin/categories/block_btn', locals: { category: category }
                   - if category.children.present?
                     = render partial: 'admin/categories/sub_categories', locals: { categories: category.children }
     .col-xs-9
+      .quotation_list
 
 

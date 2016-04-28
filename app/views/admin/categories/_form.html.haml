@@ -2,9 +2,9 @@
   = form_for @category, url: admin_categories_path,  html: {class: 'form-horizontal', role: 'form'} do |f|
     - if @category.errors.any?
       #error_explanation
-        %h2= "#{pluralize(@category.errors.count, "error")} area save problem:"
+        %h2= "#{pluralize(@category.errors.count, "error")} Category save problem:"
         %ul
-          - @area.errors.full_messages.each do |msg|
+          - @category.errors.full_messages.each do |msg|
             %li= msg
     .form-group.field
       = f.label :name, 'Category Name'

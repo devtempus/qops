@@ -1,0 +1,8 @@
+.col-xs-12
+  .quotation_list
+    - if @quotations
+      %ul
+      - @quotations.each do |quotation|
+        %li
+          %span= quotation.text
+          = render partial: 'admin/quotations/block_btn', locals: { quotation: quotation }
