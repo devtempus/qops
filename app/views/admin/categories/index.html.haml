@@ -3,23 +3,18 @@
   %span Create Root Category
 
 - if @categories.present?
-  %ul.category
-    - @categories.roots.each do |category|
-      %li
-        = category.name
-        %span
-          = link_to new_admin_category_path(category) do
-            %i.fa.fa-plus
-          = link_to edit_admin_category_path(category) do
-            %i.fa.fa-pencil
-          = link_to admin_category_path(category), method: :delete, data: { remote: true } do
-            %i.fa.fa-trash
-        - if category.children.present?
-          = render partial: 'admin/categories/sub_categories', locals: { categories: category.children }
-
-
-- else
-  = link_to new_admin_category_path do
-    %i.fa.fa-plus
-    %span Create
-
+  .navbar-default.sidebar{role: 'navigation'}
+    .sidebar-nav.navbar-collapse
+      %ul.nav.nav-second-level.collapse.in#side-menu
+        - @categories.roots.each do |category|
+          %li
+            = category.name
+            %span
+              = link_to new_admin_category_path(category) do
+                %i.fa.fa-plus
+              = link_to edit_admin_category_path(category) do
+                %i.fa.fa-pencil
+              = link_to admin_category_path(category), method: :delete, data: { remote: true } do
+                %i.fa.fa-trash
+            - if category.children.present?
+              = render partial: 'admin/categories/sub_categories', locals: { categories: category.children }
