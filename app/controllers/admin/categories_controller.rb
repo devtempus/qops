@@ -1,5 +1,6 @@
 class Admin::CategoriesController < Admin::AdminController
   before_action :current_category, only: %i(update edit show update destroy)
+  before_action :categories, only: %i(new create update)
   respond_to :html, :js
   def index
   end
@@ -32,6 +33,7 @@ class Admin::CategoriesController < Admin::AdminController
 
 
   def published
+    respond_to :js
   end
 
   def destroy
@@ -48,4 +50,9 @@ class Admin::CategoriesController < Admin::AdminController
   def current_category
     @category ||= Category.find(params[:id])
   end
-end
+
+  def categories
+    @categories ||= Category.arrange_as_array({order: 'name'}, @category.possible_parents)
+  end
+
+  end

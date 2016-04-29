@@ -6,11 +6,13 @@
         %ul
           - @category.errors.full_messages.each do |msg|
             %li= msg
+    .form-group
+      = f.hidden_field :parent_id
     .form-group.field
       = f.label :name, 'Category Name'
       = f.text_field :name, class: 'form-control'
     .form-group.field
       = f.label :parent_id
-      = f.collection_select :parent_id, Category.order('name'), :id, :name, include_blank: true
+      = f.collection_select :parent_id, @categories, :id, :name_for_selects, include_blank: true
     .form-group
       = f.submit action_name == 'edit' ? 'Update' : 'Create', class: 'form-control btn btn-primary submit-button'
