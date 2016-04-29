@@ -1,6 +1,6 @@
 .container-fluid
   .row
-    .col-xs-3
+    .col-xs-4
       %aside.sidebar
         %nav.sidebar-nav
           %ul#menu
@@ -16,7 +16,7 @@
                   = render partial: 'admin/categories/block_btn', locals: { category: category }
                   - if category.children.present?
                     = render partial: 'admin/categories/sub_categories', locals: { categories: category.children }
-    .col-xs-9
+    .col-xs-8
       .quotation_list
 
 
