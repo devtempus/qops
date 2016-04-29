@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425071808) do
+ActiveRecord::Schema.define(version: 20160429075924) do
 
   create_table "authorizations", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(version: 20160425071808) do
   add_index "authors", ["short_name"], name: "index_authors_on_short_name", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string "name",     limit: 255
-    t.string "ancestry", limit: 255
+    t.string  "name",      limit: 255
+    t.string  "ancestry",  limit: 255
+    t.boolean "published",             default: true
   end
 
   add_index "categories", ["ancestry"], name: "index_categories_on_ancestry", using: :btree
