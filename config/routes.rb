@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboards#index'
     resources :quotations
-    resources :categories
+    resources :categories do
+      get :published
+    end
     resources :tags
   end
 
