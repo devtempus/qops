@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root to: 'dashboards#index'
     resources :quotations
     resources :categories do
+      match :quotations, on: :member, via: %i(get post)
       get :published
     end
     resources :tags
