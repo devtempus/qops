@@ -1,7 +1,9 @@
-%span
-  = link_to new_admin_category_path(parent_id: category) do
-    %i.fa.fa-plus
-  = link_to edit_admin_category_path(category) do
-    %i.fa.fa-pencil
+.pull-right.blk_menu_btn
   = link_to admin_category_path(category), method: :delete, data: { remote: true } do
     %i.fa.fa-trash
+  = link_to edit_admin_category_path(category) do
+    %i.fa.fa-edit
+  = link_to new_admin_category_path(parent_id: category) do
+    %i.fa.fa-plus
+  = link_to quotations_admin_category_path(category), data: {remote: true} do
+    %i.fa.fa-list
