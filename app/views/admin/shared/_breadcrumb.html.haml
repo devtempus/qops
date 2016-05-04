@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  - category.ancestors.each do |category|
+    %li.completed
+      = link_to category.name, admin_category_path(category)
+  %li.active
+    = link_to category.name, admin_category_path(category)
