@@ -1,0 +1,12 @@
+%ul.nav.nav-pills.nav-stacked.tree_categories#tree_categories
+  %li
+    = link_to new_admin_category_path do
+      %i.fa.fa-plus
+      %span Create Root Category
+  - if categories.present?
+    - categories.each do |category|
+      %li
+        %span= category.name
+        = render partial: 'admin/categories/block_btn', locals: { category: category }
+        - if category.children.present?
+          = render partial: 'admin/categories/sub_categories', locals: { categories: category.children }
