@@ -1,0 +1,12 @@
+- content_for :title, category.name
+-# breadcrumb
+= render partial: 'admin/shared/breadcrumb', locals: { category: category }
+
+- if quotations.empty?
+  %h1= "Current Category: #{category.name} do not have any quotation."
+  %h3 You can click on this button and create quotation.
+- else
+  - quotations.each do |quotation|
+    = quotation.text
+    = quotation.full_text
+

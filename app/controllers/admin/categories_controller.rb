@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::AdminController
-  before_action :current_category, only: %i(update edit show update destroy)
+  before_action :current_category, only: %i(edit quotations update destroy)
   before_action :categories, only: %i(new create update)
   respond_to :html, :js
   def index
@@ -39,6 +39,10 @@ class Admin::CategoriesController < Admin::AdminController
   def destroy
     @category.destroy
     render :index
+  end
+
+  def quotations
+    @quotations = @category.quotations
   end
 
   private
