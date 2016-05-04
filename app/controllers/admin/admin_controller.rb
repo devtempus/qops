@@ -1,11 +1,11 @@
 class Admin::AdminController < ApplicationController
-  before_action :all_categories
+  before_action :categories
   layout 'administaration'
 
   private
 
-  def all_categories
-    @categories ||= Category.all
+  def categories
+    @categories ||= Category.roots
   end
 end
 
