@@ -8,4 +8,6 @@ class Quotation < ActiveRecord::Base
 
   belongs_to :author
   validates_presence_of :full_text
+
+  scope :publicated, -> { where(publicated: true)}
 end

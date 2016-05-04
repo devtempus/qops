@@ -5,6 +5,8 @@ class Category < ActiveRecord::Base
   has_and_belongs_to_many :quotations, through: :categories_quotations
   validates_presence_of :name
 
+  scope :publicated, -> { where(publicated: true)}
+
   class << self
     def arrange_as_array(options={}, hash=nil)
       hash ||= arrange(options)
