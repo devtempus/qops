@@ -3,5 +3,6 @@
     = render partial: 'admin/shared/left_menu', locals: {categories: @categories}
   .col-md-9.col-lg-9
     = render partial: 'shared/flash_messages'
-    = yield
+    .data_contents
+      = yield
     = yield :scripts
