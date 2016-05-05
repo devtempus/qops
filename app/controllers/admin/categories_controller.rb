@@ -1,6 +1,6 @@
 class Admin::CategoriesController < Admin::AdminController
-  before_action :current_category, only: %i(new create update edit quotations destroy)
-  before_action :categories, only: %i(new create update edit )
+  before_action :current_category, only: %i(update edit quotations destroy)
+  before_action :categories, only: %i(new create update edit)
   respond_to :html, :js
   def index
   end
@@ -30,6 +30,16 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def update
+    respond_with({}) do |format|
+      if @category.update(category_params)
+        format.html do
+          flash[:notice] = 'Category was successfully updated!'
+          redirect_to admin_categories_path
+        end
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
 
@@ -39,7 +49,12 @@ class Admin::CategoriesController < Admin::AdminController
 
   def destroy
     @category.destroy
-    render :index
+    respond_with({}) do |format|
+      format.html do
+        flash[:notice] = 'Category was destroyed!'
+        redirect_to admin_categories_path
+      end
+    end
   end
 
   def quotations
@@ -57,11 +72,7 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def categories
-    p '---------------------'
-    p @category.possible_parents
-    p Category.arrange_as_array({order: 'name'}, @category.possible_parents)
-    p '---------------------'
-    @categories ||= Category.arrange_as_array({order: 'name'}, @category.possible_parents)
+    @categories = Category.arrange_as_array({order: 'name'})
   end
 
   end

@@ -1,10 +1,10 @@
 .panel-body
-  = form_for @category, url: admin_categories_path,  html: {class: 'form-horizontal', role: 'form'} do |f|
-    - if @category.errors.any?
+  = form_for category, url: action_path,  html: {class: 'form-horizontal', role: 'form'} do |f|
+    - if category.errors.any?
       #error_explanation
-        %h2= "#{pluralize(@category.errors.count, "error")} Category save problem:"
+        %h2= "#{pluralize(category.errors.count, "error")} Category save problem:"
         %ul
-          - @category.errors.full_messages.each do |msg|
+          - category.errors.full_messages.each do |msg|
             %li= msg
     .form-group
       = f.hidden_field :parent_id
