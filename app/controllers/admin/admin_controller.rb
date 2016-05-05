@@ -1,11 +1,11 @@
 class Admin::AdminController < ApplicationController
-  before_action :categories
+  before_action :tree_categories
   layout 'administaration'
 
   private
 
-  def categories
-    @categories ||= Category.roots
+  def tree_categories
+    @tree_categories = Category.roots.publicated
   end
 end
 

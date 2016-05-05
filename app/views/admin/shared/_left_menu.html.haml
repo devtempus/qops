@@ -3,8 +3,8 @@
     = link_to new_admin_category_path do
       %i.fa.fa-plus
       %span Create Root Category
-  - if categories.present?
-    - categories.each do |category|
+  - if tree_categories.present?
+    - tree_categories.each do |category|
       %li
         %span= category.name
         = render partial: 'admin/categories/block_btn', locals: { category: category }

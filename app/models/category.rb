@@ -1,11 +1,11 @@
 class Category < ActiveRecord::Base
-  has_ancestry
+  has_ancestry cache_depth: true
 
   has_many :categories_quotations
   has_and_belongs_to_many :quotations, through: :categories_quotations
   validates_presence_of :name
 
-  scope :publicated, -> { where(publicated: true)}
+  scope :publicated, -> { where(published: true)}
 
   class << self
     def arrange_as_array(options={}, hash=nil)
@@ -21,12 +21,12 @@ class Category < ActiveRecord::Base
   end
 
   def name_for_selects
-    "#{'-' * depth} #{name}"
+    "#{'&nbsp;' * depth} #{name}".html_safe
   end
 
   def possible_parents
-    parents = Category.arrange_as_array(order: 'name')
-    return new_record? ? parents : parents - subtree
+    Category.arrange_as_array(order: 'name')
+    # return new_record? ? parents : parents - subtree
   end
 
 end
