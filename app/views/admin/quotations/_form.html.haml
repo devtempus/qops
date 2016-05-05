@@ -1,5 +1,5 @@
 .panel-body
-  = form_for quotation, url: admin_quotations_path,  html: {class: 'form-horizontal', role: 'form'} do |f|
+  = form_for quotation, url: action_path,  html: {class: 'form-horizontal', role: 'form'} do |f|
     - if quotation.errors.any?
       #error_explanation
         %h2= "#{pluralize(quotation.errors.count, "error")} Quotation save problem:"
@@ -12,7 +12,7 @@
     .form-group.field
       = f.label :full_text
       = f.text_field :full_text, class: 'form-control'
-    -#.form-group.field
+    .form-group.field
       = f.label :publicated_date
       = f.text_field :publicated_date, class: 'form-control'
     .form-group

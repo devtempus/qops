@@ -1,0 +1,13 @@
+%table.table.table-bordered
+  %thead.thead-inverse
+    %tr
+      %th #
+      %th text
+      %th ---
+  %tbody
+    - if quotations.present?
+      - quotations.each do |quotation|
+        %tr
+          %th{scope: 'row'}= quotation.id
+          %td= quotation.text
+          %td= render partial: 'admin/quotations/block_btn', locals: {quotation: quotation}

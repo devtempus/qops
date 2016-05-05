@@ -9,6 +9,16 @@ class Admin::QuotationsController < Admin::AdminController
   end
 
   def update
+    respond_with({}) do |format|
+      if @quotation.update(quotation_params)
+        format.html do
+          flash[:notice] = 'Quotation was successfully updated!'
+          redirect_to admin_quotations_path
+        end
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def new
@@ -33,7 +43,12 @@ class Admin::QuotationsController < Admin::AdminController
 
   def destroy
     @quotation.destroy
-    render :index
+    respond_with({}) do |format|
+      format.html do
+        flash[:notice] = 'Quotation was destroyed!'
+        redirect_to admin_quotations_path
+      end
+    end
   end
 
   def publiched
