@@ -1,5 +1,5 @@
-%span
+.pull-right
+  = link_to admin_quotation_path(quotation), method: :delete, data: { remote: true, confirm: 'Are you sure?' } do
+    %i.fa.fa-trash
   = link_to edit_admin_quotation_path(quotation) do
     %i.fa.fa-pencil
-  = link_to admin_quotation_path(quotation), method: :delete, data: { remote: true } do
-    %i.fa.fa-trash

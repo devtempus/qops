@@ -30,6 +30,8 @@ gem 'responders'
 
 gem 'ancestry'
 
+gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.8'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl'
