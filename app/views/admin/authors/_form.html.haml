@@ -1,0 +1,13 @@
+.panel-body
+  = form_for author, url: action_path,  html: {class: 'form-horizontal', role: 'form'} do |f|
+    - if author.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(author.errors.count, "error")} Author save problem:"
+        %ul
+          - author.errors.full_messages.each do |msg|
+            %li= msg
+    .form-group.field
+      = f.label :name, 'Author Name'
+      = f.text_field :full_name, class: 'form-control'
+    .form-group
+      = f.submit action_name == 'edit' ? 'Update' : 'Create', class: 'form-control btn btn-primary submit-button'

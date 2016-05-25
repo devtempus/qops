@@ -1,0 +1,13 @@
+%table.table.table-bordered
+  %thead.thead-inverse
+    %tr
+      %th #
+      %th Name
+      %th ---
+  %tbody
+    - if authors.present?
+      - authors.each do |author|
+        %tr
+          %th{scope: 'row'}= author.id
+          %td= author.full_name
+          %td= render partial: 'admin/authors/block_btn', locals: {author: author}
