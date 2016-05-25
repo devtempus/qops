@@ -13,6 +13,10 @@
           = link_to admin_categories_path do
             Categories
             %span.sr-only (current)
+        %li{class: controller_name == 'authors' ? 'active' : ''}
+          = link_to admin_authors_path do
+            Authors
+            %span.sr-only
         %li{class: controller_name == 'quotations' ? 'active' : ''}
           = link_to admin_quotations_path do
             Quotations
