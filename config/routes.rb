@@ -1,3 +1,5 @@
+require 'versionist/routing_params'
+
 Rails.application.routes.draw do
   ####################
   ###   Root Level ###
@@ -15,6 +17,13 @@ Rails.application.routes.draw do
       get :published
     end
     resources :tags
+  end
+
+  ### API ###
+  namespace :api, defaults: { format: :json } do
+    api_version(api_version_params(1, defaults: { format: :json }, default: true)) do
+      resources :quotations, only: %i(index create)
+    end
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
