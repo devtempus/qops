@@ -7,6 +7,11 @@ gem 'puma'
 ### DB ###
 gem 'mysql2'
 
+### API ###
+gem 'rabl'
+gem 'versionist'
+# gem 'rocket_pants'
+
 ### Frontend ###
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
