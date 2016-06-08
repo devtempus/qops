@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525072315) do
+ActiveRecord::Schema.define(version: 20160606093852) do
 
   create_table "authorizations", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 20160525072315) do
   end
 
   create_table "authors", force: :cascade do |t|
-    t.string "short_name", limit: 255
-    t.string "pseudonym",  limit: 255
-    t.string "date_birth", limit: 255
-    t.string "full_name",  limit: 255
+    t.string  "pseudonym",   limit: 255
+    t.string  "full_name",   limit: 255
+    t.boolean "publicated",              default: true
+    t.string  "description", limit: 255
+    t.date    "burn_date"
+    t.date    "die_date"
   end
-
-  add_index "authors", ["short_name"], name: "index_authors_on_short_name", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string  "name",      limit: 255

@@ -9,5 +9,5 @@
       - quotations.each do |quotation|
         %tr
           %th{scope: 'row'}= quotation.id
-          %td= quotation.text
+          %td= quotation.full_text
           %td= render partial: 'admin/quotations/block_btn', locals: {quotation: quotation}

@@ -3,7 +3,7 @@ module Api
     include Api::BaseModule
     protect_from_forgery with: :null_session
 
-    before_action :set_resource, only: %(show update destroy)
+    before_action :set_resource, only: %w(show update destroy)
 
     before_action :destroy_session
 
