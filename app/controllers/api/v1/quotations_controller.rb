@@ -10,13 +10,12 @@ module Api
 
       def create
         return if params[:quotations].empty?
-        author = JSON.parse params[:author]
         quotations = JSON.parse(params[:quotations])
         Quotation.transaction do
-          @author = request_author(JSON.parse(params[:author]))
+          author = request_author(JSON.parse(params[:author]))
 
           @quotations = quotations.each do |quotation_params|
-            create_quotation(quotation_params.deep_symbolize_keys, @author)
+            create_quotation(quotation_params.deep_symbolize_keys, author)
           end
         end
         respond_with @quotations
@@ -26,7 +25,7 @@ module Api
 
       def create_quotation(quotation, author)
         q_option = quotation.deep_symbolize_keys
-        Quotation.create author: author, full_text: q_option[:full_text]
+        Quotation.create author_id: author.id, full_text: q_option[:full_text]
       rescue => e
         fail "Create quotation Error! #{e.message}"
       end
