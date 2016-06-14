@@ -9,18 +9,20 @@ module Api
       end
 
       def create
-        return if params[:quotation].blank? || params[:author].empty?
-        params_author = JSON.parse(params[:author]).deep_symbolize_keys unless params[:author].nil?
+        data_params = JSON.parse(params[:data]).deep_symbolize_keys
+        return if data_params[:quotation].blank? || data_params[:author].empty?
+        params_author = data_params[:author].deep_symbolize_keys unless data_params[:author].nil?
         author = request_author(params_author[:full_name])
-        quotation = create_quotation(params[:quotation], author)
-        categories = request_categories params_author[:categories]
-        tags = request_tags(JSON.parse params[:tags])
+        quotation = create_quotation(data_params[:quotation], author)
+        request_categories(params_author[:categories], quotation)
+        request_tags(data_params[:tags], quotation)
+
         data_response =
             {
                 author: author,
                 quotation: quotation,
-                tags: tags.map(&:id),
-                categories: categories.map(&:id)
+                tags: quotation.tags.map(&:name),
+                categories: quotation.categories.map(&:name)
             }
         respond_with data_response, location: root_path
       end
@@ -40,15 +42,15 @@ module Api
         fail "Author Error! #{e.message}"
       end
 
-      def request_tags(tags)
-        tags.map{|tag| Tag.find_or_create_by(name: tag)}
+      def request_tags(tags, quotation)
+        tags.map{|tag| quotation.tags << Tag.find_or_create_by(name: tag)}
       rescue => e
         fail "Tag Error! #{e.message}"
       end
 
-      def request_categories(categories)
+      def request_categories(categories, quotation)
         categories = ['none_category'] if categories.empty?
-        categories.map{ |category| Category.find_or_create_by name: category }
+        categories.map{ |category| quotation.categories << Category.find_or_create_by(name: category) }
       rescue => e
         fail "Category Error! #{e.message}"
       end
