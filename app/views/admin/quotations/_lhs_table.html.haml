@@ -11,3 +11,4 @@
           %th{scope: 'row'}= quotation.id
           %td= quotation.full_text
           %td= render partial: 'admin/quotations/block_btn', locals: {quotation: quotation}
+      = will_paginate quotations
