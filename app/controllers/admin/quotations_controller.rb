@@ -5,7 +5,7 @@ class Admin::QuotationsController < Admin::AdminController
   end
 
   def index
-    @quotations ||= Quotation.all
+    @quotations ||= Quotation.paginate(page: params[:page], per_page: Admin::AdminController::PER_PAGE)
   end
 
   def update

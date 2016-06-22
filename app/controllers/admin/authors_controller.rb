@@ -3,7 +3,7 @@ class Admin::AuthorsController < Admin::AdminController
   respond_to :html, :js
 
   def index
-    @authors ||= Author.all
+    @authors ||= Author.paginate(page: params[:page], per_page: Admin::AdminController::PER_PAGE)
   end
 
   def show

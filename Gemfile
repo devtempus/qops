@@ -37,6 +37,8 @@ gem 'ancestry'
 
 gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.8'
 
+gem 'will_paginate', '~> 3.1.0'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl'
