@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   ### API ###
   namespace :api, defaults: { format: :json } do
     api_version(api_version_params(1, defaults: { format: :json }, default: true)) do
-      resources :quotations, only: %i(index create)
+      resources :quotations, only: %i(index create update)
     end
   end
 
