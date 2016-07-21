@@ -7,7 +7,7 @@ set :rvm_type, :user
 set :rvm_path, '~/.rvm'
 
 # Rails setting
-#set :rails_env, 'production'
+set :rails_env, 'production'
 
 set :application, 'qops'
 set :repo_url, 'git@github.com:devtempus/qops.git'
@@ -60,15 +60,40 @@ set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # end
 
 
+
 namespace :deploy do
 
+  # task :restart do
+  #   on roles(:app), in: :sequence, wait: 5 do
+  #     execute :touch, release_path.join('tmp/restart.txt')
+  #   end
+  # end
+
   desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, release_path.join('tmp/restart.txt')
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
     end
   end
 
+  desc 'Upload database.yml'
+  task :upload do
+    on roles(:all) do
+      execute "mkdir -p #{deploy_to}/shared/config"
+      upload!("config/database.yml.#{fetch(:rails_env)}", "#{deploy_to}/shared/config/database.yml")
+    end
+  end
+
+  task :create_db do
+    on roles(:all) do
+      execute "cd #{deploy_to}/current && RAILS_ENV=#{fetch(:rails_env)} #{fetch(:rvm_path)}/bin/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake db:create"
+    end
+  end
+
+  before 'deploy:migrate', 'deploy:create_db'
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
 end
