@@ -9,10 +9,10 @@
       = link_to 'Admin Panel Q-Project', %i(admin root), class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li{class: controller_name == 'categories' ? 'active' : ''}
-          = link_to admin_categories_path do
-            Categories
-            %span.sr-only (current)
+        -#%li{class: controller_name == 'categories' ? 'active' : ''}
+        -#  = link_to admin_categories_path do
+        -#    Categories
+        -#    %span.sr-only (current)
         %li{class: controller_name == 'authors' ? 'active' : ''}
           = link_to admin_authors_path do
             Authors
@@ -21,8 +21,8 @@
           = link_to admin_quotations_path do
             Quotations
             %span.sr-only
-        %li{class: controller_name == 'tags' ? 'active' : ''}
-          = link_to admin_tags_path do
-            Tags
-            %span.sr-only
+        -#%li{class: controller_name == 'tags' ? 'active' : ''}
+        -#  = link_to admin_tags_path do
+        -#    Tags
+        -#    %span.sr-only
       %ul.nav.navbar-nav.navbar-right

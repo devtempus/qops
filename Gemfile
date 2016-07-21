@@ -39,6 +39,13 @@ gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.8'
 
 gem 'will_paginate', '~> 3.1.0'
 
+
+# for deploy
+gem 'capistrano', '~> 3.5.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rvm', github: 'capistrano/rvm'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl'

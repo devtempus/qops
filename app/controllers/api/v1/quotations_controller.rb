@@ -5,7 +5,7 @@ module Api
       skip_before_action :verify_authenticity_token
       respond_to :json
       def index
-        respond_with Quotation.all
+        respond_with Quotation.limit(100)
       end
 
       def create
@@ -25,6 +25,10 @@ module Api
                 categories: quotation.categories.map(&:name)
             }
         respond_with data_response, location: root_path
+      end
+
+      def update
+
       end
 
       private
