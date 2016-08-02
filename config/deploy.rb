@@ -54,7 +54,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 set :keep_releases, 5
 
 SSHKit.config.command_map[:rake] = "#{fetch(:rvm_path)}/bin/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
-SSHKit.config.command_map[:unicorn] = "#{fetch(:rvm_path)}/bin/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec unicorn"
+# SSHKit.config.command_map[:unicorn] = "#{fetch(:rvm_path)}/bin/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec unicorn"
 
 
 # namespace :deploy do
