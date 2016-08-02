@@ -20,9 +20,12 @@ Rails.application.configure do
   # NGINX, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
+  # Disable Rails's static asset server (Apache or nginx will already do this).
+  config.serve_static_assets = false
+
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  # config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -46,8 +49,24 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = :info
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      # address: 'lenderstie.com',
+      # port: 465,
+      # user_name: 'no-replay',
+      # password: 'no-replay#1',
+      # authentication: 'plain',
+      # enable_starttls_auto: true
+      address: 'localhost',
+      port: 25,
+      domain: '95.46.98.193',
+      enable_starttls_auto: false
+      # tls: true,
+      # enable_starttls_auto: true
+      # authentication: :login
+  }
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
@@ -76,4 +95,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  routes.default_url_options = { host: 'https://95.46.98.193' }
+  config.action_mailer.default_url_options = { host: 'https://95.46.98.193' }
+  config.action_controller.default_url_options = { host: 'https://95.46.98.193' }
+  config.asset_host = 'https://95.46.98.193'
+  # config.middleware.use Rack::GoogleAnalytics, tracker: 'UA-XXXXXXXX-X'
+
 end
