@@ -32,6 +32,8 @@ set :use_sudo, false
 # set :format, :airbrussh
 set :format, :pretty
 
+set :passenger_restart_with_touch, true
+
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
 # set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
