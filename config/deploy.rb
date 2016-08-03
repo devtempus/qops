@@ -2,11 +2,11 @@
 lock '3.5.0'
 
 set :rails_env, 'production'
-set :unicorn_env, 'production'
+# set :unicorn_env, 'production'
 set :application, 'qops'
 # set :repo_url, 'git@github.com:devtempus/qops.git'
 set :repo_url, 'https://github.com/devtempus/qops.git'
-set :domain, 'gds-deploy@95.46.98.193'
+# set :domain, 'gds-deploy@95.46.98.193'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 ask :branch, 'for-deploy'
@@ -26,7 +26,7 @@ set :rvm_path, '~/.rvm'
 # set :unicorn_conf, "#{deploy_to}/releases/current/config/unicorn.rb"
 # set :unicorn_pid, "#{deploy_to}/shared/tmp/pids/unicorn.pid"
 
-set :use_sudo, false
+# set :use_sudo, false
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
