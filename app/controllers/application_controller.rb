@@ -5,17 +5,17 @@ class ApplicationController < ActionController::Base
 
   after_filter :return_errors, only: [:page_not_found, :server_error]
 
-  def page_not_found
-    @status = 404
-    @layout = "application"
-    @template = "not_found_error"
-  end
-
-  def server_error
-    @status = 500
-    @layout = "error"
-    @template = "internal_server_error"
-  end
+  # def page_not_found
+  #   @status = 404
+  #   @layout = "application"
+  #   @template = "not_found_error"
+  # end
+  #
+  # def server_error
+  #   @status = 500
+  #   @layout = "error"
+  #   @template = "internal_server_error"
+  # end
 
   private
 
