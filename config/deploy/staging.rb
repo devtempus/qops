@@ -1,4 +1,5 @@
-
+set :stage, :staging
+server '95.46.98.193', user: 'deploy', roles: %w{web app db}
 
 # server-based syntax
 # ======================
@@ -23,9 +24,9 @@
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-role :app, %w{deployer@h95.46.98.193}
-role :web, %w{deployer@95.46.98.193}
-role :db,  %w{deployer@95.46.98.193}
+# role :app, %w{deploy@95.46.98.193}
+# role :web, %w{deploy@95.46.98.193}
+# role :db,  %w{deploy@95.46.98.193}
 
 
 

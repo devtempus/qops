@@ -7,8 +7,8 @@
 # set :bundle_roles, :all
 
 set :stage, :production
-
-server '95.46.98.193', user: 'gds-deploy', roles: %w{web app}, my_property: :my_value
+server '95.46.98.193', user: 'deploy', roles: %w{web app db}
+# server '95.46.98.193', user: 'gds-deploy', roles: %w{web app}, my_property: :my_value
 
 # server-based syntax
 # ======================
@@ -33,9 +33,9 @@ server '95.46.98.193', user: 'gds-deploy', roles: %w{web app}, my_property: :my_
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-role :app, %w{gds-deploy@95.46.98.193}
-role :web, %w{gds-deploy@95.46.98.193}
-role :db,  %w{gds-deploy@95.46.98.193}
+# role :app, %w{deploy@95.46.98.193}
+# role :web, %w{deploy@95.46.98.193}
+# role :db,  %w{deploy@95.46.98.193}
 
 
 # Configuration
