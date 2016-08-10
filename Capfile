@@ -24,5 +24,8 @@ require 'capistrano/rbenv'
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 
+set :rbenv_type, :user
+set :rbenv_ruby, '2.3.1'
+
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
