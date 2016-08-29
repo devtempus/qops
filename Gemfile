@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0'
 
 ### for DB ###
+gem 'pg'
 gem 'foreigner'
 gem 'composite_primary_keys'
 
@@ -38,7 +39,7 @@ gem 'will_paginate', '~> 3.1.0'
 
 group :development do
   gem 'puma', '~> 3.6.0' ### Server
-  gem 'mysql2' ### DB
+  # gem 'mysql2' ### DB
   ### For Deployment ###
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-bundler', '~> 1.1.2'
@@ -65,6 +66,6 @@ group :development, :test do
   gem 'byebug'
 end
 
-group :production do
-  gem 'pg' ### DB
-end
+# group :production do
+#   gem 'pg' ### DB
+# end

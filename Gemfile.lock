@@ -151,7 +151,6 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
-    mysql2 (0.4.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
@@ -319,7 +318,6 @@ DEPENDENCIES
   jquery-rails (~> 4.1.1)
   jquery-ui-rails
   meta_request
-  mysql2
   pg
   pry
   pry-byebug
