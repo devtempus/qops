@@ -7,7 +7,7 @@ set :rails_env, 'production'
 set :repo_url, 'git@github.com:devtempus/qops.git'
 
 # ask :branch, 'deploy'
-ask :branch, 'for-deploy'
+ask :branch, 'deploy'
 # set :use_sudo, false
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
