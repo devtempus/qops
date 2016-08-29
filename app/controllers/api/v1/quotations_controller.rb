@@ -1,6 +1,6 @@
 module Api
   module V1
-    class QuotationsController < Api::BaseController
+    class QuotationsController < Api::V1::BaseController
       # http_basic_authenticate_with name: 'admin', password: 'qweasdzxc'
       skip_before_action :verify_authenticity_token
       respond_to :json

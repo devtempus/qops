@@ -1,6 +1,6 @@
 module Api
   module V1
-    class SessionsController
+    class SessionsController < Api::V1::BaseController
 
       def create
         # user = User.find_for_database_authentication(email: sign_in_params[:email])
