@@ -4,7 +4,8 @@ lock '3.4.1'
 set :application, 'qops'
 set :rails_env, 'production'
 
-set :repo_url, 'git@github.com:devtempus/qops.git'
+set :repo_url, 'git@bitbucket.org:Golfer/gops.git' #close repo
+# set :repo_url, 'git@github.com:devtempus/qops.git' ## OLD repo
 
 # ask :branch, 'deploy'
 ask :branch, 'deploy'
