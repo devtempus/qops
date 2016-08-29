@@ -24,7 +24,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bootswatch-rails', '~> 3.3.5'
 gem 'font-awesome-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'jbuilder', '~> 2.0'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.5'
 
 gem 'rest-client', '~>2.0.0'
 gem 'async-rails'
