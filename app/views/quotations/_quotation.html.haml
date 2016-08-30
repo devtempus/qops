@@ -1,0 +1,4 @@
+%li{id: quotation.id}
+  #quetation= quotation.full_text
+  #author= quotation.author.full_name
+  #tags= quotation.tags.map{|t| t.name}.join(', ')

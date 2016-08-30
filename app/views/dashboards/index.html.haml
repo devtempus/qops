@@ -1,0 +1,5 @@
+.quotation_list
+  %ul
+    - if @quotations.present?
+      = render @quotations
+    = will_paginate @quotations
