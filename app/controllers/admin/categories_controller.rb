@@ -58,7 +58,7 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def quotations
-    @quotations = @category.quotations
+    @quotations = @category.quotations#.paginate(page: params[:page], per_page: Admin::AdminController::PER_PAGE)
   end
 
   private
