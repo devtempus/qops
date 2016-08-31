@@ -1,6 +1,7 @@
 require 'versionist/routing_params'
 
 Rails.application.routes.draw do
+  devise_for :users
   # if Rails.env.production?
   #   get '404', to: 'application#page_not_found'
   #   get '422', to: 'application#server_error'

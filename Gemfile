@@ -36,6 +36,11 @@ gem 'ancestry'
 gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
 gem 'will_paginate', '~> 3.1.0'
 
+#for authorization, authentification & roles for user
+gem 'devise',           '~> 4.2.0', '>=4.2.0'
+gem 'devise_invitable', '~> 1.7.0'
+gem 'cancancan',        '~> 1.15', '>=1.15.0'
+
 group :development do
   gem 'puma', '~> 3.6.0' ### Server
   gem 'mysql2' ### DB

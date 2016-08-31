@@ -26,3 +26,11 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+* Fix problem with db after update rails to 5.0.0
+    RUN this ->
+      rake db:environment:set RAILS_ENV=development
+      (
+        rake db:environment:set RAILS_ENV=development
+        bundle exec rake db:drop db:create db:migrate
+      )
