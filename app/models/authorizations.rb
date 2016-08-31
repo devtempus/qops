@@ -1,2 +1,2 @@
-class Authorizations < ActiveRecord::Base
+class Authorizations < ApplicationRecord
 end

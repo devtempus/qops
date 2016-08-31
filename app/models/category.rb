@@ -1,4 +1,4 @@
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
   include TreeCategories
 
   has_many :categories_quotations

@@ -1,4 +1,4 @@
-class Quotation < ActiveRecord::Base
+class Quotation < ApplicationRecord
 
   has_many :categories_quotations
   has_and_belongs_to_many :categories, through: :categories_quotations
