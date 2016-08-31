@@ -7,8 +7,7 @@ set :rails_env, 'production'
 set :repo_url, 'git@bitbucket.org:Golfer/gops.git' #close repo
 # set :repo_url, 'git@github.com:devtempus/qops.git' ## OLD repo
 
-# ask :branch, 'deploy'
-ask :branch, 'deploy'
+ask :branch, 'master'
 # set :use_sudo, false
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
