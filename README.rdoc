@@ -1,36 +1,20 @@
-== README
+== Q-project WIKI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ * Q-OPS
 
-Things you may want to cover:
+  APP has two part
+    Back - end
+    Fron - tend
 
-* Ruby version
+  RUBY Version 2.3.1
 
-* System dependencies
+  RAILS Version 5.0.0
 
-* Configuration
+  DB
+    - Development /MYSQL/
+    - Production /Postgrase/
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-* Fix problem with db after update rails to 5.0.0
+* Fix problem SET DB after update rails to 5.0.0
     RUN this ->
-      rake db:environment:set RAILS_ENV=development
-      (
-        rake db:environment:set RAILS_ENV=development
-        bundle exec rake db:drop db:create db:migrate
-      )
+      rake db:environment:set RAILS_ENV=development; bundle exec rake db:drop db:create db:migrate
