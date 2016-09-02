@@ -4,17 +4,30 @@ class Ability
   def initialize(user)
       user ||= User.new # guest user (not logged in)
 
-      alias_action :create, :read, :update, :destroy, :to => :crud
-      alias_action :update, :destroy, :to => :modify
+      alias_action :create, :read, :update, :destroy, to: :crud
+      alias_action :create, :update, :destroy, to: :modify
 
       if user.admin?
-        can :crud, [Quotation, User, Tag]
+        can :create, [Quotation, Tag, Author]
+
       elsif user.api?
-        can [:create, :update], [Quotation, User, Tag]
+        can [:read,:create, :update], [Quotation, User, Tag]
       elsif user.moderator?
         can :modify, [Quotation, User, Tag]
+      elsif user.author?
+
+        can :crud, Quotation do |quotation|
+          quotation.author == user
+        end
+
+        can [:create, :update], Tag do |tag|
+          tag.author == user
+        end
+
+        cannot [:create, :update, :destroy], Category
+
       elsif user.banned?
-        can :read, Quotation
+        can :read, [Quotation, Tag]
       else
         can :read, :all
       end

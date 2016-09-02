@@ -5,7 +5,7 @@ module Api
 
     before_action :set_resource, only: %w(show update destroy)
 
-    before_action :destroy_session
+    # before_action :destroy_session
 
     def destroy_session
       request.session_options[:skip] = true
