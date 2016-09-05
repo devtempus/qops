@@ -19,13 +19,13 @@ Rails.application.routes.draw do
   ####################
   ###   Root Level ###
   ####################
-  root to: 'dashboards#index'
+  root controller: :dashboards, action: :index, as: :root
 
   ###########################
   ###   ADMIN Resources   ###
   ###########################
   namespace :admin do
-    root to: 'dashboards#index'
+    root controller: :dashboards, action: :index, as: :root
     resources :authors
     resources :quotations
     resources :categories do
