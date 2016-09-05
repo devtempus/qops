@@ -1,22 +1,31 @@
 require 'versionist/routing_params'
 
 Rails.application.routes.draw do
-  # if Rails.env.production?
-  #   get '404', to: 'application#page_not_found'
-  #   get '422', to: 'application#server_error'
-  #   get '500', to:  'application#server_error'
-  # end
+  if Rails.env.production?
+    get '404', to: 'application#page_not_found'
+    get '422', to: 'application#server_error'
+    get '500', to: 'application#server_error'
+  end
+
+  devise_for :users,
+              controllers: {
+                #omniauth_callbacks: 'users/omniauth_callbacks',
+                sessions:      'users/sessions',
+                registrations: 'users/registrations',
+                passwords:     'users/passwords'
+              }
+
 
   ####################
   ###   Root Level ###
   ####################
-  root to: 'dashboards#index'
+  root controller: :dashboards, action: :index, as: :root
 
   ###########################
   ###   ADMIN Resources   ###
   ###########################
   namespace :admin do
-    root to: 'dashboards#index'
+    root controller: :dashboards, action: :index, as: :root
     resources :authors
     resources :quotations
     resources :categories do
