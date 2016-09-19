@@ -11,8 +11,11 @@ class User < ApplicationRecord
          :validatable#,
          # :omniauthable,
          # omniauth_providers: %i(facebook)
-  validates_presence_of :email
-  validates_presence_of :encrypted_password
+
+  validates :email, presence: true, length: { maximum: 128 }
+  validates :email, uniqueness: true
+  validates :encrypted_password, presence: true, length: { maximum: 128 }
+
 
   attr_accessor :role, :current_password, :new_password, :confirm_password, :roles_array
   cattr_accessor :current_user
