@@ -1,5 +1,8 @@
-.quotation_list
-  %ul
-    - if @quotations.present?
-      = render @quotations
-    = will_paginate @quotations
+= render 'widgets/search'
+
+- if @quotations.present?
+  .data_list
+    %ul
+      = render partial: 'quotations/quotation', locals: {quotations: @quotations}
+    .pager
+      = will_paginate @quotations, renderer: BootstrapPagination::Rails
