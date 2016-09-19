@@ -34,14 +34,24 @@ gem 'ancestry'
 
 # gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.8'
 gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
-gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 #for authorization, authentification & roles for user
-gem 'devise',           '~> 4.2.0', '>=4.2.0'
+gem 'devise',           '~> 4.2.0',  '>=4.2.0'
+gem 'devise_token_auth','~> 0.1.39', '>=0.1.39'
 gem 'devise_invitable', '~> 1.7.0'
+
 gem 'cancancan',        '~> 1.15', '>=1.15.0'
+
 # gem 'omniauth'
 # gem 'omniauth-facebook'
+
+
+#-------- NEED TO USE THESE gems ------!!!-
+#https://github.com/chaps-io/public_activity
+# gem 'public_activity'
+# gem 'web-console', '~> 3.0'
+#--------------------------------------!!!-
 
 group :development do
   gem 'puma', '~> 3.6.0' ### Server
@@ -60,8 +70,8 @@ group :development do
   gem 'better_errors', '~> 2.1.0'
   gem 'binding_of_caller'
   gem 'rubocop', require: false
-  # gem 'awesome_print'
-  # gem 'quiet_assets'
+  gem 'awesome_print'
+  gem 'brakeman', require: false
   gem 'web-console', '~> 2.0'
 end
 
