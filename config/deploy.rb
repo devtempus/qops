@@ -37,40 +37,6 @@ namespace :deploy do
     end
   end
 
-  # desc 'Upload database.yml & secret.yml'
-  # task :upload do
-  #   on roles(:all) do
-  #     execute "mkdir -p #{deploy_to}/shared/config"
-  #     upload!('config/database.yml.example', "#{deploy_to}/shared/config/database.yml")
-  #     upload!('config/secrets.yml.example', "#{deploy_to}/shared/config/secrets.yml")
-  #   end
-  # end
-
-
-  desc 'Runs rake db:create'
-  task create_db: [:set_rails_env] do
-    on primary fetch(:migration_role) do
-      within release_path do
-        with rails_env: fetch(:rails_env) do
-          # execute :rake, "db:create RAILS_ENV=#{fetch(:rails_env)}" PLEASE CREATE DB BEFORE DEPLOY FIRST TIME!!!!
-          execute :rake, "db:migrate RAILS_ENV=#{fetch(:rails_env)}"
-        end
-      end
-    end
-  end
-
-  desc 'Resets DB without create/drop'
-  task :reset_db do
-    on primary :db do
-      within release_path do
-        with rails_env: fetch(:stage) do
-          execute :rake, 'db:schema:load'
-          execute :rake, 'db:seed'
-        end
-      end
-    end
-  end
-
   before :publishing, 'deploy:create_db'
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
