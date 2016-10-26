@@ -1,6 +1,6 @@
 - quotations.each do |quotation|
   %li{id: quotation.id}
-    #quotation.quotation= quotation.full_text
+    #quotation.quotation= quotation.text
     #author.author
       =link_to quotation.author.full_name, '#'
     #tags.tags

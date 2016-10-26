@@ -1,5 +1,3 @@
 .row
-  %h1
-    Profile
-  =debug current_user
-
+  .col-lg-12
+    = render partial: 'users/shared/form', locals: { user: @user }

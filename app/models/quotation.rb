@@ -8,8 +8,7 @@ class Quotation < ApplicationRecord
 
   belongs_to :author
 
-  validates :full_text, presence: true
-  validates :full_text, uniqueness: true
+  validates :text, presence: true
 
   scope :publicated, -> { includes(:tags).where(publicated: true)}
 end

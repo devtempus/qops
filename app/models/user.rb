@@ -1,6 +1,7 @@
-class User < ApplicationRecord
+  class User < ApplicationRecord
   has_many :roles_users
-  has_and_belongs_to_many :roles, through: :roles_users#, dependent: :delete_all
+  has_many :tokens, dependent: :destroy
+  has_and_belongs_to_many :roles, through: :roles_users
 
   devise :database_authenticatable,
          :registerable,
@@ -8,9 +9,7 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :timeoutable,
-         :validatable#,
-         # :omniauthable,
-         # omniauth_providers: %i(facebook)
+         :validatable
 
   validates :email, presence: true, length: { maximum: 128 }
   validates :email, uniqueness: true
@@ -25,13 +24,11 @@ class User < ApplicationRecord
   end
 
   after_create do
+    # self.token_api_key = SecureRandom.base64.tr('+/=', 'Qrt')
     self.roles << Role.find(self.role) if self.role.present? && self.roles.empty?
   end
 
   scope :users_with_role, ->(role) { joins(:roles).where(roles: { name: role }) }
-  # scope :admins, -> { users_with_role('ROLE_ADMIN') }
-  # scope :moderator, -> { users_with_role('ROLE_MODERATOR') }
-  # scope :author, -> { users_with_role('ROLE_AUTHOR') }
 
   #FOR checking user role
   def role?(role)
@@ -50,4 +47,11 @@ class User < ApplicationRecord
       moderator?: 'ROLE_MODERATOR',
       banned?: 'ROLE_BANNED'
   }.each{|name, args| define_method(name){ has_roles?(args) }}
+
+  # def generate_token_api_key
+  #   loop do
+  #     token = SecureRandom.base64.tr('+/=', 'Qrt')
+  #     break token unless User.exists?(token_api_key: token)
+  #   end
+  # end
 end

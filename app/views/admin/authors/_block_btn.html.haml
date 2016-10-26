@@ -1,7 +1,7 @@
 .pull-right
   -#= link_to 'Publicate', admin_author_publicate_path(author)
   -#= link_to 'UN-Publicate',
-  = link_to admin_author_publicate_path(author), class: 'btn btn-warning', data: { remote: true, confirm: 'You wants to publicate all quotations' } do
+  = link_to admin_author_publicate_path(author), class: 'btn btn-warning', data: { remote: true }  do
     %span Q - show
   = link_to admin_author_unpublicate_path(author), class: 'btn btn-warning', data: { remote: true, confirm: 'You wants to publicate all quotations' } do
     %span Q - hide

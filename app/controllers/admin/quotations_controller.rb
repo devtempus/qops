@@ -76,7 +76,7 @@ module Admin
     private
 
     def quotation_params
-      params.require(:quotation).permit(:id, :text, :full_text, :author_id)
+      params.require(:quotation).permit(:id, :text, :author_id)
     end
 
     def current_quotation

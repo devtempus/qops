@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902101212) do
-
-  create_table "authorizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "username"
-    t.string   "uid"
-    t.string   "token"
-    t.string   "secret"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20160921090356) do
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "pseudonym"
@@ -48,15 +37,13 @@ ActiveRecord::Schema.define(version: 20160902101212) do
 
   create_table "quotations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "author_id"
-    t.string   "text"
-    t.text     "full_text",       limit: 65535
+    t.text     "text",            limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "publicated",                    default: false
     t.datetime "publicated_date"
     t.string   "source"
     t.index ["author_id"], name: "index_quotations_on_author_id", using: :btree
-    t.index ["text"], name: "index_quotations_on_text", unique: true, using: :btree
   end
 
   create_table "quotations_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -81,6 +68,23 @@ ActiveRecord::Schema.define(version: 20160902101212) do
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  end
+
+  create_table "tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "username"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "expiring",   default: false
+    t.datetime "expired_at"
+    t.string   "api_token"
+    t.string   "api_salt"
+    t.index ["api_token"], name: "index_tokens_on_api_token", unique: true, using: :btree
+    t.index ["token"], name: "index_tokens_on_token", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

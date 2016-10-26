@@ -17,7 +17,7 @@
 
 * Fix problem SET DB after update rails to 5.0.0
     RUN this ->
-      rake db:environment:set RAILS_ENV=development; bundle exec rake db:drop db:create db:migrate
+        rake db:environment:set RAILS_ENV=development; bundle exec rake db:drop db:create db:migrate
 
 *----------------------------------------------*
   => Action Cable install & configure
@@ -58,27 +58,31 @@ Rails ActiveRecord objects and usage within Rails templates are supported via in
 JSON Structure Multy Upload
 ===========================
 {
-  "author": { "full_name":"Adam RichardSon-3" }
+  "author": { "full_name":"Adam RichardSon-3", "description": "Test Author description" },
   "quotations": [
   	{
       "text": "text Quotation 1",
       "source": "http://test.com",
+      "tags": ["tag1","tag2","tag3","tag4", "tag5", "tag6"],
       "categories":["cat1", "cat3", "catN"]
     },
     {
       "text": "text Quotation 2",
       "source": "http://test.com",
+      "tags": ["tag1","tag2","tag3","tag4", "tag5", "tag6"],
       "categories":["cat1", "cat3", "catN"]
     },
     {
       "text": "text Quotation 3",
       "source": "http://test.com",
+      "tags": ["tag1","tag2","tag3","tag4", "tag5", "tag6"],
       "categories":["cat1", "cat3", "catN"]
     },
     {
       "text": "text Quotation 4",
       "source": "http://test.com",
       "categories":["cat1", "cat3", "catN"]
+      "tags": ["tag1","tag2","tag3","tag4", "tag5", "tag6"],
     },
     {
       "text": "text Quotation 5",

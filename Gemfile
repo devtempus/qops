@@ -5,7 +5,7 @@ gem 'rails', '5.0.0'
 ### for DB ###
 gem 'foreigner'
 gem 'composite_primary_keys'
-
+# gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 ### API ###
 gem 'rabl'
 gem 'versionist'

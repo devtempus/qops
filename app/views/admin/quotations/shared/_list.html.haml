@@ -4,7 +4,7 @@
       - quotations.each do |quotation|
         %li{data: {id: quotation.id } }
           .row
-            = quotation.full_text
+            = quotation.text
           .row
             .col-md-9
               = quotation.source

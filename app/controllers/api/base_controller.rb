@@ -5,6 +5,8 @@ module Api
 
     before_action :set_resource, only: %w(show update destroy)
 
+    # TODO Need thik how to secure API and change this logic
+    # http_basic_authenticate_with name: 'api_admin', password: '<7\fXJ%g[\xE6((x'
     # before_action :destroy_session
 
     def destroy_session
@@ -12,7 +14,7 @@ module Api
     end
 
     def resource_name
-      @resource_name ||= self.controller_name.singularize
+      @resource_name ||= controller_name.singularize
     end
 
     def resource_class
@@ -32,6 +34,5 @@ module Api
     def set_resource
       instance_variable_set "@#{resource_name}", resource_class.find(params[:id])
     end
-
   end
 end
