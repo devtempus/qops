@@ -9,21 +9,21 @@
       = link_to 'Q-Project', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
-        -#%li
-        -#  = link_to '#' do
-        -#    %span Latest 100
-        -#%li
-        -#  = link_to '#' do
-        -#    %span Authors
+        %li
+          = link_to latest_path do
+            %span Latest 100
+        %li
+          = link_to authors_path do
+            %span Authors
         -#%li
         -#  = link_to '#' do
         -#    %span Top 10
-        -#%li
-        -#  = link_to '#' do
-        -#    %span Tags
-        -#%li
-        -#  = link_to '#' do
-        -#    %span Subjects
+        %li
+          = link_to tags_path do
+            %span Tags
+        %li
+          = link_to categories_path do
+            %span Subjects
         -#%li
         -#  = link_to '#' do
         -#    %span the Best

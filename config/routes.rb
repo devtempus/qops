@@ -1,6 +1,10 @@
 require 'versionist/routing_params'
 
 Rails.application.routes.draw do
+  get 'author/index'
+
+  get 'author/show'
+
   mount ActionCable.server => '/cable'
 
   if Rails.env.production? || Rails.env.development?
@@ -28,6 +32,10 @@ Rails.application.routes.draw do
   ###   Root Level ###
   ####################
   root controller: :dashboards, action: :index, as: :root
+  match :latest, controller: :dashboards, action: :latest, via: %i(get)
+  resources :authors, only: %i(index show)
+  resources :categories, only: %i(index)
+  resources :tags, only: %i(index)
 
   ###########################
   ###   ADMIN Resources   ###
